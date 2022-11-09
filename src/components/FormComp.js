@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import './index.css';
 
 function FormComp() {
     const [values, SetValues] = useState();
