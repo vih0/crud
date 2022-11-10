@@ -1,20 +1,27 @@
 body {
-  background-color: #1c1c1c;
-  box-sizing: border-box;
-  font-size: 62, 5%;
-  font-family: "Noto Sans", sans-serif;
+  background-color: #1c1c1c !important;
+  box-sizing: border-box !important;
+  font-size: 62, 5% !important;
+  font-family: "Noto Sans", sans-serif !important;
 }
 .App {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 .container-wrapp {
+  width: 25rem;
+  height: 25rem;
   background-color: #696969;
   border-radius: 1.5rem;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1rem 0 0 0;
 }
 h1 {
   color: #1c1c1c;
@@ -28,7 +35,6 @@ input {
   border: none;
   outline: none;
 }
-
 input::placeholder {
   color: #1c1c1cb7;
   font-style: italic;
@@ -47,4 +53,12 @@ input:focus {
   color: #1c1c1c;
   text-transform: uppercase;
   cursor: pointer;
+}
+.List {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.row {
+  border-left: solid 0.5rem black;
 }

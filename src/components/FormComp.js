@@ -3,20 +3,24 @@ import { useState } from "react";
 import "./index.css";
 import axios from "axios";
 
-
 function FormComp() {
   const [Name, SetName] = useState("");
   const [Book, SetBook] = useState("");
   const [Category, SetCategory] = useState("");
   const PostData = () => {
-    
-      axios.post(`https://636bda197f47ef51e13c1fe5.mockapi.io/api/v1/books`, {
-          Name,
-          Book,
-          Category
+    axios
+      .post(`https://636bda197f47ef51e13c1fe5.mockapi.io/api/v1/books`, {
+        Name,
+        Book,
+        Category,
       })
-  }
-   
+      .then(
+        () => {
+          alert("Livro Cadastrado com sucesso");
+        },
+        () => alert("Não foi possivel concluir operação")
+      );
+  };
 
   return (
     <div className="App">
