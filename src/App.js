@@ -1,18 +1,12 @@
-// import { BrowserRouter as Router, Route } from 'react-router-dom'
-import FormComp from "./components/FormComp";
-import ListComp from './components/ListComp';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+import Home from "./components/Home";
 
 function App() {
   return (
-  // <Router>
-      <div className="App">
-      <FormComp/>
-      <ListComp />
-        {/* <div>
-          <Route exact path = '/create' component ={FormComp} />
-        </div> */}
-      </div>
-    // </Router>
+    <Routes>
+      <Route path="/" element={<Home />} />
+    </Routes>
   );
 }
 
