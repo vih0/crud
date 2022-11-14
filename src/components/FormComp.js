@@ -2,6 +2,8 @@ import React from "react";
 import { useState } from "react";
 import "./index.css";
 import axios from "axios";
+import Alert from "./Alert";
+import { render } from "@testing-library/react";
 
 
 function FormComp() {
@@ -17,7 +19,7 @@ function FormComp() {
       })
       .then(
         () => {
-          alert("Livro Cadastrado com sucesso");
+          render(<Alert title = "Cadastrado"/>) 
         },
         () => alert("Não foi possivel concluir operação")
       );

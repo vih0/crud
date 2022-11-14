@@ -3,6 +3,7 @@ import "semantic-ui-css/semantic.min.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+
 function ListComp() {
   const [apiDados, setapiDados] = useState([]);
   useEffect(() => {
@@ -10,6 +11,22 @@ function ListComp() {
       .get(`https://636bda197f47ef51e13c1fe5.mockapi.io/api/v1/books`, {})
       .then((response) => setapiDados(response.data));
   }, []);
+  const Delete = (id) => {
+    axios
+      .delete(`https://636bda197f47ef51e13c1fe5.mockapi.io/api/v1/books/${id}`)
+      .then(() => {
+        getData()
+      })
+  }
+  const getData = () => {
+    axios
+      .get(`https://636bda197f47ef51e13c1fe5.mockapi.io/api/v1/books$`)
+      .then((getData) => {
+        setapiDados(getData.data)
+      } )
+      
+    }
+  
   return (
     <div className="List">
       <Table singleLine>
@@ -18,8 +35,8 @@ function ListComp() {
             <Table.HeaderCell>Nome do Livro</Table.HeaderCell>
             <Table.HeaderCell>Autor</Table.HeaderCell>
             <Table.HeaderCell>Categoria</Table.HeaderCell>
-            <Table.HeaderCell>UPDATE</Table.HeaderCell>
-            <Table.HeaderCell>DELETE</Table.HeaderCell>
+            <Table.HeaderCell>Editar</Table.HeaderCell>
+            <Table.HeaderCell>Excluir</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 
@@ -27,9 +44,12 @@ function ListComp() {
           {apiDados.map((data) => {
             return (
               <Table.Row>
+               
                 <Table.Cell>{data.Book}</Table.Cell>
                 <Table.Cell>{data.Name}</Table.Cell>
                 <Table.Cell>{data.Category}</Table.Cell>
+                <Table.Cell><button className='btn-update'>Editar</button></Table.Cell>
+                <Table.Cell><button onClick={() => Delete(data.id)} className='btn-delete'>Excluir</button></Table.Cell>
                 
             
               </Table.Row>
