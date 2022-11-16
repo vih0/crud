@@ -3,6 +3,8 @@ import "semantic-ui-css/semantic.min.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Pencil from "../../assets/pencil.svg"
+import Trash from "../../assets/trash.svg"
 
 function ListComp() {
   const [apiDados, setapiDados] = useState([]);
@@ -48,7 +50,7 @@ function ListComp() {
                 <Table.Cell>{data.Category}</Table.Cell>
                 <Link to="/update">
                   <Table.Cell>
-                    <button className="btn-update">Editar</button>
+                    <button className="btn-update"><img src={Pencil} alt="icon Pencil"></img></button>
                   </Table.Cell>
                 </Link>
                 <Table.Cell>
@@ -56,7 +58,7 @@ function ListComp() {
                     onClick={() => Delete(data.id)}
                     className="btn-delete"
                   >
-                    Excluir
+                    <img src={Trash} alt="icon Trash"></img>
                   </button>
                 </Table.Cell>
               </Table.Row>

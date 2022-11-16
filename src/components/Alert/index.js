@@ -1,5 +1,5 @@
 import Check from "../../assets/check.svg";
-import Close from "../../assets/ep_close-bold.svg";
+import Close from "../../assets/close.svg";
 import "./index.css";
 
 function Alert(props) {

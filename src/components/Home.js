@@ -1,5 +1,5 @@
-import FormComp from "./FormComp";
-import ListComp from "./ListComp";
+import FormComp from "../components/FormComp";
+import ListComp from "../components/ListComp";
 
 
 function Home() {
