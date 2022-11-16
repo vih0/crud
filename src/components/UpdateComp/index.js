@@ -1,37 +1,76 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import Alert from "../Alert";
+import { render } from "@testing-library/react";
+import Arrow from "../../assets/arrow.svg";
+import './indexUpdate.css'
+import { Link } from "react-router-dom";
+
 
 function UpdateComp() {
-    const [Name, setName] = useState("")
-    const [Book, setBook] = useState("")
-    const [Category, setCategory] = useState("")
-    return (
-        <div className="container-wrapp">
+  const [Name, SetName] = useState("");
+  const [Book, SetBook] = useState("");
+  const [Category, SetCategory] = useState("");
+  const [id, setID] = useState(null);
+
+  useEffect(() => {
+    setID(localStorage.getItem("id"));
+    SetName(localStorage.getItem("Name"));
+    SetBook(localStorage.getItem("Book"));
+    SetCategory(localStorage.getItem("Category"));
+  }, []);
+  const updateData = () => {
+    axios
+      .put(`https://636bda197f47ef51e13c1fe5.mockapi.io/api/v1/books/${id}`, {
+        Name,
+        Book,
+        Category,
+      })
+      .then(
+        () => {
+          render(<Alert title="Cadastrado" />);
+        },
+        () => alert("Não foi possivel concluir operação")
+      );
+  };
+  return (
+      <div className="Update-wrapper">
+          <Link to={'/'}>
+        <button className="btn-Return">
+          <img src={Arrow} alt="Arrow Return"></img>
+              </button>
+              </Link>
+      <div className="container-wrapp">
         <h1 className="title">Lista de Livros</h1>
         <input
           type="text"
           name="name"
           placeholder="Autor"
           className="input"
-        //   onChange={(e) => SetName(e.target.value)}
+          value={Name}
+          onChange={(e) => SetName(e.target.value)}
         ></input>
         <input
           type="text"
           name="book"
           placeholder="Nome do Livro"
           className="input"
-        //   onChange={(e) => SetBook(e.target.value)}
+          value={Book}
+          onChange={(e) => SetBook(e.target.value)}
         ></input>
         <input
           type="text"
           name="category"
           placeholder="Categoria"
           className="input"
-        //   onChange={(e) => SetCategory(e.target.value)}
+          value={Category}
+          onChange={(e) => SetCategory(e.target.value)}
         ></input>
-         <button className="btn-Add">
+        <button className="btn-Add" onClick={updateData}>
           Atualizar!
         </button>
       </div>
-    );
+    </div>
+  );
 }
 export default UpdateComp;

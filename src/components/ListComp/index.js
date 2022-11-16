@@ -27,7 +27,13 @@ function ListComp() {
         setapiDados(getData.data);
       });
   };
-
+  const setData = (data) => {
+    let { id, Book, Name, Category } = data
+    localStorage.setItem("id", id);
+    localStorage.setItem("Name", Name);
+    localStorage.setItem("Book", Book);
+    localStorage.setItem("Category", Category);
+  }
   return (
     <div className="List">
       <Table singleLine>
@@ -50,7 +56,7 @@ function ListComp() {
                 <Table.Cell>{data.Category}</Table.Cell>
                 <Link to="/update">
                   <Table.Cell>
-                    <button className="btn-update"><img src={Pencil} alt="icon Pencil"></img></button>
+                    <button className="btn-update" onClick={()=> setData(data)}><img src={Pencil} alt="icon Pencil"></img></button>
                   </Table.Cell>
                 </Link>
                 <Table.Cell>
