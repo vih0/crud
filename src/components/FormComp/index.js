@@ -3,12 +3,15 @@ import { useState } from "react";
 import "./index.css";
 import axios from "axios";
 import Alert from "../Alert"
+import ListComp from "../ListComp";
 
 function FormComp() {
   const [Name, SetName] = useState("");
   const [Book, SetBook] = useState("");
   const [Category, SetCategory] = useState("");
- const [isOpen, setOpen] = useState(false)
+  const [isOpen, setOpen] = useState(false)
+
+  
   const PostData = () => {
     axios
     .post(`https://636bda197f47ef51e13c1fe5.mockapi.io/api/v1/books`, {
@@ -51,6 +54,8 @@ function FormComp() {
           Adicionar!
         </button>
       </div>
+      
+
     </div>
   );
 }

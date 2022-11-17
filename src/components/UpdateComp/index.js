@@ -4,8 +4,7 @@ import { useEffect, useState } from "react";
 import Arrow from "../../assets/arrow.svg";
 import "./indexUpdate.css";
 import { Link } from "react-router-dom";
-import Check from "../../assets/check.svg";
-import Close from "../../assets/close.svg";
+
 import "../Alert";
 import Alert from "../Alert";
 

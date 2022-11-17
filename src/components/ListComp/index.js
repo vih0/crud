@@ -7,6 +7,7 @@ import Pencil from "../../assets/pencil.svg"
 import Trash from "../../assets/trash.svg"
 
 function ListComp() {
+
   const [apiDados, setapiDados] = useState([]);
   useEffect(() => {
     axios
@@ -33,6 +34,7 @@ function ListComp() {
     localStorage.setItem("Name", Name);
     localStorage.setItem("Book", Book);
     localStorage.setItem("Category", Category);
+   
   }
   return (
     <div className="List">
