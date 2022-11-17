@@ -11,7 +11,7 @@ body {
   gap: 2rem;
 }
 .container-wrapp {
-  width: 38rem;
+  width: 44rem;
   height: 25rem;
   background-color: #6969697a;
   border-radius: 1.5rem;
@@ -24,7 +24,7 @@ body {
   margin: 1rem 0 0 0;
 }
 h1 {
-  color: #1c1c1c;
+  color: whitesmoke;
   font-weight: bold;
 }
 input {

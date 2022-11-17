@@ -1,20 +1,20 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-import { render } from "@testing-library/react";
 import Arrow from "../../assets/arrow.svg";
 import "./indexUpdate.css";
 import { Link } from "react-router-dom";
 import Check from "../../assets/check.svg";
 import Close from "../../assets/close.svg";
-import "../Alert/index.css";
+import "../Alert";
+import Alert from "../Alert";
 
 function UpdateComp() {
   const [Name, SetName] = useState("");
   const [Book, SetBook] = useState("");
   const [Category, SetCategory] = useState("");
   const [id, setID] = useState(null);
-  const [isOpen, setOpen]= useState(false)
+  const [isOpen, setOpen] = useState(false);
   useEffect(() => {
     setID(localStorage.getItem("id"));
     SetName(localStorage.getItem("Name"));
@@ -27,24 +27,14 @@ function UpdateComp() {
         Name,
         Book,
         Category,
-      }).then(render(function Alert() {
-          <div className="Alert">
-          {isOpen ? "true" : "false"}
-          <img src={Close} alt="close menu icon" className="Close-icon" onClick={() => setOpen(!isOpen)} />
-          <div className="container_wrapp">
-            <img src={Check} alt="Icon Check" />
-            <h2>Sucesso</h2>
-          </div>
-        </div>
-      }), alert("erro"))
-      
+      })
+      .then(() => setOpen(true))
+      .catch(() => alert("erro"));
   };
-
 
   return (
     <div className="Update-wrapper">
-   
-      
+      {isOpen && <Alert text="Atualizado com sucesso" setOpen={()=>setOpen(false) } /> }
       <Link to={"/"}>
         <button className="btn-Return">
           <img src={Arrow} alt="Arrow Return"></img>
@@ -76,11 +66,11 @@ function UpdateComp() {
           value={Category}
           onChange={(e) => SetCategory(e.target.value)}
         ></input>
-        <button className="btn-Add" onClick={updateData }>
+        <button className="btn-Add" onClick={updateData}>
           Atualizar!
         </button>
       </div>
-  </div>
+    </div>
   );
 }
 export default UpdateComp;

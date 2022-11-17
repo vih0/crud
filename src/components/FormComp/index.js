@@ -2,31 +2,28 @@ import React from "react";
 import { useState } from "react";
 import "./index.css";
 import axios from "axios";
-import Alert from "../Alert";
-import { render } from "@testing-library/react";
-
+import Alert from "../Alert"
 
 function FormComp() {
   const [Name, SetName] = useState("");
   const [Book, SetBook] = useState("");
   const [Category, SetCategory] = useState("");
+ const [isOpen, setOpen] = useState(false)
   const PostData = () => {
     axios
-      .post(`https://636bda197f47ef51e13c1fe5.mockapi.io/api/v1/books`, {
-        Name,
-        Book,
-        Category,
-      })
-      .then(
-        () => {
-          render(<Alert title = "Cadastrado"/>) 
-        },
-        () => alert("Não foi possivel concluir operação")
-      );
+    .post(`https://636bda197f47ef51e13c1fe5.mockapi.io/api/v1/books`, {
+      Name,
+      Book,
+      Category,
+    }).then(() => setOpen(true))
+    .catch(()=>console.log('erro'))
+      
   };
 
+  
   return (
     <div className="App">
+      {isOpen  && <Alert text ="Cadastrado com Sucesso" setOpen = {()=> setOpen(false)} />}
       <div className="container-wrapp">
         <h1 className="title">Lista de Livros</h1>
         <input
