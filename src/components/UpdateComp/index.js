@@ -1,11 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-
 import Arrow from "../../assets/arrow.svg";
 import "./indexUpdate.css";
-import { Link } from "react-router-dom";
-
-import "../Alert";
+import { Link, useParams } from "react-router-dom";
 import Alert from "../Alert";
 
 function UpdateComp() {
@@ -14,6 +11,8 @@ function UpdateComp() {
   const [Category, SetCategory] = useState("");
   const [id, setID] = useState(null);
   const [isOpen, setOpen] = useState(false);
+  const { bookId } = useParams();
+  console.log(bookId);
   useEffect(() => {
     setID(localStorage.getItem("id"));
     SetName(localStorage.getItem("Name"));
@@ -33,7 +32,9 @@ function UpdateComp() {
 
   return (
     <div className="Update-wrapper">
-      {isOpen && <Alert text="Atualizado com sucesso" setOpen={()=>setOpen(false) } /> }
+      {isOpen && (
+        <Alert text="Atualizado com sucesso" setOpen={() => setOpen(false)} />
+      )}
       <Link to={"/"}>
         <button className="btn-Return">
           <img src={Arrow} alt="Arrow Return"></img>

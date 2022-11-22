@@ -1,4 +1,4 @@
-import { Routes,Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import Home from "./components/Home";
 import UpdateComp from "./components/UpdateComp";
@@ -7,8 +7,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/update" element ={<UpdateComp/>}/>
-     
+      <Route path="/update/:bookId" element={<UpdateComp />} />
     </Routes>
   );
 }
