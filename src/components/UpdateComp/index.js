@@ -9,23 +9,25 @@ function UpdateComp() {
   const [Name, SetName] = useState("");
   const [Book, SetBook] = useState("");
   const [Category, SetCategory] = useState("");
-  const [id, setID] = useState(null);
+
   const [isOpen, setOpen] = useState(false);
   const { bookId } = useParams();
-  console.log(bookId);
+
   useEffect(() => {
-    setID(localStorage.getItem("id"));
     SetName(localStorage.getItem("Name"));
     SetBook(localStorage.getItem("Book"));
     SetCategory(localStorage.getItem("Category"));
   }, []);
   const updateData = () => {
     axios
-      .put(`https://636bda197f47ef51e13c1fe5.mockapi.io/api/v1/books/${id}`, {
-        Name,
-        Book,
-        Category,
-      })
+      .put(
+        `https://636bda197f47ef51e13c1fe5.mockapi.io/api/v1/books/${bookId}`,
+        {
+          Name,
+          Book,
+          Category,
+        }
+      )
       .then(() => setOpen(true))
       .catch(() => alert("erro"));
   };

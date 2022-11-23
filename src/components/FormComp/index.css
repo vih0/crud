@@ -8,12 +8,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
 }
 .container-wrapp {
   width: 44rem;
   height: 25rem;
-  background-color: #6969697a;
+  background-color: #6969695d;
   border-radius: 1.5rem;
   padding: 1rem;
   display: flex;
@@ -21,7 +20,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  margin: 1rem 0 0 0;
+  margin: 1rem 0 2rem 0;
 }
 h1 {
   color: whitesmoke;
