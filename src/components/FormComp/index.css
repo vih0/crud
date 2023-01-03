@@ -4,7 +4,7 @@ body {
   font-size: 62, 5% !important;
   font-family: "Noto Sans", sans-serif !important;
 }
-.Home {
+.App {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,8 +12,9 @@ body {
 .container-wrapp {
   width: 44rem;
   height: 25rem;
-  background-color: #6969695d;
-  border-radius: 1.5rem;
+  background-color: #69696923;
+
+  border-radius: 0.5rem;
   padding: 1rem;
   display: flex;
   flex-direction: column;

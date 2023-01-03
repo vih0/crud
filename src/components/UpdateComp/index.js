@@ -12,6 +12,7 @@ function UpdateComp() {
 
   const [isOpen, setOpen] = useState(false);
   const { bookId } = useParams();
+  console.log(Name, Book, Category);
 
   useEffect(() => {
     SetName(localStorage.getItem("Name"));
